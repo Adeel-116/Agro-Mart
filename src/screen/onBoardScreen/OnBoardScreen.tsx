@@ -1,7 +1,7 @@
-import { View, StyleSheet, Image, Text } from 'react-native';
-// import colors from '../../constants/Colors';
-import LinearGradient from 'react-native-linear-gradient';
+import { View, StyleSheet, Image, Text, StatusBar} from 'react-native';
+import React, {  } from 'react';
 import colors from '../../constants/Colors';
+import LinearGradient from 'react-native-linear-gradient';
 import CustomButton from '../../components/CustomButton';
 export function OnBoardScreen() {
 
@@ -11,8 +11,8 @@ export function OnBoardScreen() {
     }
 
   return (
-    <View style={styles.container}>
-
+    <View  style={styles.container}>
+        <StatusBar translucent backgroundColor="transparent" barStyle="dark-content" />
         {/* Container 1 */}
       <View style={styles.container1}>
         {/* Linear Gradient */}
