@@ -1,44 +1,56 @@
 import React from 'react';
 import { View, TouchableOpacity, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import colors from '../../constants/Colors';
 
 const tabs = [
-  { name: 'Home', icon: <Icon name="home" size={24} color="#000" />, screen: 'HomeScreen' },
-  { name: 'Wishlist', icon: <Icon name="heart" size={24} color="#000" />, screen: 'WishlistScreen' },
-  { name: 'Cart', icon: <Icon name="shopping-cart" size={24} color="#000" />, screen: 'CartScreen' },
-  { name: 'Notifications', icon: <Icon name="bell" size={24} color="#000" />, screen: 'NotificationScreen' },
-  { name: 'Profile', icon: <Icon name="user" size={24} color="#000" />, screen: 'ProfileScreen' },
+  { name: 'Home', icon: 'home', screen: 'HomeScreen' },
+  { name: 'Wishlist', icon: 'heart', screen: 'WishlistScreen' },
+  { name: 'Cart', icon: 'shopping-cart', screen: 'CartScreen' },
+  { name: 'Notifications', icon: 'bell', screen: 'NotificationScreen' },
+  { name: 'Profile', icon: 'user', screen: 'ProfileScreen' },
 ];
 
 export default function BottomBar() {
   return (
-    <View style={styles.container}>
-      <View style={styles.tabsContainer}>
-        {tabs.map((tab, index) => (
-          <TouchableOpacity
-            key={index}
-            onPress={() => console.log(`Navigate to ${tab.screen}`)}
-            style={styles.tabButton}
-          >
-            <View style={styles.iconWrapper}>
-              {tab.icon}
-            </View>
-          </TouchableOpacity>
-        ))}
+    <SafeAreaView edges={['bottom']} style={styles.safeArea}>
+      <View style={styles.container}>
+        <View style={styles.tabsContainer}>
+          {tabs.map((tab, index) => (
+            // const isActive = route.name === tab.screen;
+            <TouchableOpacity
+              key={index}
+              onPress={() => console.log(`Navigate to ${tab.screen}`)}
+              style={styles.tabButton}
+            >
+              <View style={styles.iconWrapper}>
+                 <Icon
+                 name={tab.icon}
+                 size={24}
+                 color={'#555'}
+            />
+              </View>
+            </TouchableOpacity>
+          ))}
+        </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  safeArea: {
     width: '100%',
     backgroundColor: '#fff',
-    paddingVertical: 10,
-    borderTopWidth: 1,
-    borderColor: '#ddd',
     position: 'absolute',
     bottom: 0,
+  },
+  container: {
+    paddingVertical: 10,
+    borderTopWidth: 1,
+    borderColor: colors.primary,
+    paddingHorizontal: 5,
   },
   tabsContainer: {
     flexDirection: 'row',

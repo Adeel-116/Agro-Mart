@@ -1,5 +1,6 @@
-// import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
-// import OnBoardScreen from './src/screen/onBoardScreen/OnBoardScreen';
+import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
+import OnBoardScreen from './src/screen/onBoardScreen/OnBoardScreen';
+import 
 import BottomBar from './src/components/BottomBar/BottomBar';
 function App() {
   // const isDarkMode = useColorScheme() === 'dark';
