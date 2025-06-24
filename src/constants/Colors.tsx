@@ -18,7 +18,7 @@ const colors:ColorPalette= {
   secondary: '#FF9800',     
   accent: '#2196F3',       
   background: '#FFFFFF',    
-  textPrimary: '#212121',   
+  textPrimary: '#979899',   
   textSecondary: '#757575',
   border: '#E0E0E0',       
   error: '#F44336',        

@@ -1,7 +1,15 @@
 import { View, StyleSheet, Image, Text } from 'react-native';
 // import colors from '../../constants/Colors';
 import LinearGradient from 'react-native-linear-gradient';
+import colors from '../../constants/Colors';
+import CustomButton from '../../components/CustomButton';
 export function OnBoardScreen() {
+
+
+    function handleClick() {
+        console.log("Button Clicked");  
+    }
+
   return (
     <View style={styles.container}>
 
@@ -12,7 +20,7 @@ export function OnBoardScreen() {
           colors={[
             'rgba(35, 170, 73, 0.3)',
             'transparent',
-            'rgba(35, 170, 73, 0.06)',
+            'rgba(35, 170, 73, 0)',
           ]}
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 1 }}
@@ -39,8 +47,13 @@ export function OnBoardScreen() {
 
         {/* Text or TagLine */}
         <View style={styles.textContainer}>
-            <Text style={styles.tagLineStyle}>Fresh groceries delivered at your doorstep.</Text>
+            <Text style={styles.tagLineStyle}>From Store To Your Door <Text style={{color: colors.primary}}> — </Text> Fast & Fresh.</Text>
+        
+            <Text style={styles.paraText}>The ultimate grocery delivery app for fresh and fast service, every day.</Text>
         </View>
+
+        {/* Button  */}
+        <CustomButton title={"Shop Now"} onPress={handleClick}  style={{ marginTop: 10, alignSelf: 'center', paddingHorizontal: 60,}}/>
 
       </View>
 
@@ -137,13 +150,23 @@ const styles = StyleSheet.create({
   },
   textContainer:{
     width: '100%',
-    backgroundColor: 'pink',
-    paddingHorizontal: 15,
+    paddingHorizontal: 30,
   },
   tagLineStyle:{
     textAlign: 'center',
-    fontSize: 20,
+    fontSize: 25,
     fontWeight: 'bold',
-    fontFamily: 'DMSans',
+    paddingVertical: 10,
+    lineHeight: 30,
+  },
+  paraText:{
+    width: '90%',
+    textAlign: 'center',
+    fontSize: 16,
+    paddingVertical: 10,
+    lineHeight: 20,
+    color: colors.textPrimary,
+    justifyContent: 'center',
+    alignSelf: 'center',
   }
 });
